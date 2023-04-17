@@ -1,0 +1,57 @@
+CREATE TABLE Gerente (
+  id SERIAL PRIMARY KEY,
+  nombre VARCHAR(100),
+  email VARCHAR(100),
+  fecha_nacimiento DATE,
+  telefono VARCHAR(20)
+);
+
+CREATE TABLE Conductor (
+  id SERIAL PRIMARY KEY,
+  nombre VARCHAR(100),
+  email VARCHAR(100),
+  fecha_nacimiento DATE,
+  telefono VARCHAR(20)
+);
+
+
+CREATE TABLE Mina (
+  id SERIAL PRIMARY KEY,
+  nombre VARCHAR(100),
+  ubicacion VARCHAR(100)
+);
+
+CREATE TABLE Vehiculo (
+  id SERIAL PRIMARY KEY,
+  modelo VARCHAR(100),
+  placa VARCHAR(20),
+  ubicacion VARCHAR(100),
+  estado VARCHAR(100),
+  id_conductor INTEGER REFERENCES Conductor(id),
+  id_mina INTEGER REFERENCES Mina(id)
+);
+
+CREATE TABLE Semaforo (
+  id SERIAL PRIMARY KEY,
+  ubicacion VARCHAR(100),
+  estado VARCHAR(100),
+  tipo VARCHAR(100),
+  id_mina INTEGER REFERENCES Mina(id)
+);
+
+CREATE TABLE Congestion (
+  id SERIAL PRIMARY KEY,
+  fecha_hora TIMESTAMP,
+  duracion INTEGER,
+  id_vehiculo INTEGER REFERENCES Vehiculo(id),
+  id_semaforo INTEGER REFERENCES Semaforo(id)
+);
+
+CREATE TABLE Orden (
+  id SERIAL PRIMARY KEY,
+  fecha_hora TIMESTAMP,
+  material VARCHAR(500),
+  cantidad NUMERIC,
+  estado VARCHAR(100),
+  id_vehiculo INTEGER REFERENCES Vehiculo(id)
+);
