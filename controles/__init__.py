@@ -7,3 +7,5 @@ from .ControlMina import ControlMina
 from .ControlOrden import ControlOrden
 from .ControlOrdenMaterial import ControlOrdenMaterial
 from .ControlSemaforo import ControlSemaforo
+from .ControlUbicacion import ControlUbicacion
+from .ControlVehiculo import ControlVehiculo
