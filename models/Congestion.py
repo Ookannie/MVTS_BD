@@ -5,12 +5,13 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 class Congestion(Base):
-    __tablename__ = 'congestion'
+    __tablename__ = 'congestiones'
 
-    id = Column(Integer, primary_key=True)
+    congestion_id = Column(Integer, primary_key=True, autoincrement=True)
     fecha_hora = Column(DateTime)
     duracion = Column(Integer)
-    id_vehiculo = Column(Integer, ForeignKey('vehiculo.id'))
-    id_semaforo = Column(Integer, ForeignKey('semaforo.id'))
-    vehiculo = relationship("Vehiculo", backref="congestiones")
-    semaforo = relationship("Semaforo", backref="congestiones")
+    ubicacion_id = Column(Integer, ForeignKey('ubicaciones.ubicacion_id', ondelete='CASCADE'))
+    semaforo_id = Column(Integer, ForeignKey('semaforos.semaforo_id', ondelete='CASCADE'))
+
+    ubicacion = relationship("Ubicacion", back_populates="congestiones")
+    semaforo = relationship("Semaforo", back_populates="congestiones")

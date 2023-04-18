@@ -1,4 +1,3 @@
-from sqlalchemy.orm import Session
 from DAO.ConductorDAO import ConductorDAO
 from models.Conductor import Conductor
 from controles.IControl import IControl

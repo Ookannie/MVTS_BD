@@ -5,11 +5,12 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 class Orden(Base):
-    __tablename__ = 'orden'
+    __tablename__ = 'ordenes'
 
-    id = Column(Integer, primary_key=True)
+    orden_id = Column(Integer, primary_key=True, autoincrement=True)
     fecha_hora = Column(DateTime)
-    cantidad = Column(Numeric)
-    estado = Column(String(100))
-    id_vehiculo = Column(Integer, ForeignKey('vehiculo.id'))
-    vehiculo = relationship("Vehiculo", backref="ordenes")
+    estado = Column(String(50))
+    gerente_id = Column(Integer, ForeignKey('gerentes.gerente_id', ondelete='CASCADE'))
+    vehiculo_id = Column(Integer, ForeignKey('vehiculos.vehiculo_id', ondelete='CASCADE'))
+    gerente = relationship("Gerente")
+    vehiculo = relationship("Vehiculo")

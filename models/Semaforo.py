@@ -1,15 +1,16 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, Float, DateTime
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
 class Semaforo(Base):
-    __tablename__ = 'semaforo'
+    __tablename__ = 'congestiones'
 
-    id = Column(Integer, primary_key=True)
-    ubicacion = Column(String(100))
-    estado = Column(String(100))
-    tipo = Column(String(100))
-    id_mina = Column(Integer, ForeignKey('mina.id'))
-    mina = relationship("Mina", backref="semaforos")
+    congestion_id = Column(Integer, primary_key=True)
+    fecha_hora = Column(DateTime)
+    duracion = Column(Integer)
+    ubicacion_id = Column(Integer, ForeignKey('ubicaciones.ubicacion_id', ondelete='CASCADE'))
+    ubicacion = relationship("Ubicacion")
+    semaforo_id = Column(Integer, ForeignKey('semaforos.semaforo_id', ondelete='CASCADE'))
+    semaforo = relationship("Semaforo")
