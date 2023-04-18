@@ -2,7 +2,7 @@ from DAO.MinaDAO import MinaDAO
 from models.Mina import Mina
 from controles.IControl import IControl
 
-class ControlOrden(IControl):
+class ControlMina(IControl):
     def __init__(self):
         self.mina_dao = MinaDAO()
 

@@ -5,3 +5,5 @@ from .CongestionDAO import CongestionDAO
 from .MaterialDAO import MaterialDAO
 from .MinaDAO import MinaDAO
 from .OrdenDAO import OrdenDAO
+from .OrdenMaterialDAO import OrdenMaterialDAO
+from .SemaforoDAO import SemaforoDAO

@@ -5,3 +5,5 @@ from .ControlCongestion import ControlCongestion
 from .ControlMaterial import ControlMaterial
 from .ControlMina import ControlMina
 from .ControlOrden import ControlOrden
+from .ControlOrdenMaterial import ControlOrdenMaterial
+from .ControlSemaforo import ControlSemaforo
