@@ -2,7 +2,7 @@ from DAO.MaterialDAO import MaterialDAO
 from models.Material import Material
 from controles.IControl import IControl
 
-class ControlCongestion(IControl):
+class ControlOrden(IControl):
     def __init__(self):
         self.material_dao = MaterialDAO()
 
